@@ -1,13 +1,82 @@
+/* 
+let obj = { //obj는 객체
+    n:10,
+    obj2:{
+        f1:() => {
+            console.log(this);
+            console.log(this.n);
+        }
+    }
+}
+obj.obj2.f1();
+ */
+
+
+
+/* 
+//생성자함수(클래스) >> new
+
+function Func(){
+    this.num = 100;
+    this.obj = {
+        num : 200,
+        f1:()=>{
+            console.log(this.num);
+            //자기자신을 감싸고있는 num을 사용한다.            
+        },
+        f2:function(){
+            console.log(this.num);
+            //자기자신 안에 있는 num을 사용한다. 
+        }
+    }
+}
+let ins = new Func();
+// 자바에서는 ins를 객체라고 했었지만 JS에는 인스턴스라고 한다.
+ins.obj.f1();
+ins.obj.f2();
+console.log('');
+*/
+
+
+
+
+/* 
+// 객체안에서 에로우함수를 사용할때
+// this를 주의(사용하지 말자) 하자.
+let obj = {
+    num : 100,
+    func01:()=>{//람다함수에서 this를 사용하면 빈 객체를 가르킨다.
+        console.log(this);
+        console.log(this.num);
+    },
+    func02:function(){
+        console.log(this);
+        console.log(this.num);
+    },
+    func03(){
+        console.log(this);
+        console.log(this.num);
+    }
+    //this쓸일이 있으면 에로우함수를 쓰지말고 function을 쓰자
+    //2번형식을 쓰면 되지만 1번형식을 쓸 일이 있으면 3번을 쓰자
+    //1번과 3번 동일 코드
+}
+obj.func01();
+obj.func02();
+obj.func03();
+ */
+
+
+
+
+
+/* 
 //          문자열      배열        객체
 //length    o           o           x
 //forEach   x           o           x
 //forIn     o           o           o
 //forof     o           o           x
 //map       x           o           x
-
-
-
-
 
 //문자열
 let a = "문자열";
@@ -78,7 +147,7 @@ for (const v in c) {
 //     v => (v.length > 0) ? 10:20
 // )
 // console.log(b1);
-
+ */
 
 
 
@@ -351,7 +420,7 @@ console.log(ar, num2); // push는 배열의 길이를 리턴해주고있다.
 
 
 
-/*
+/* 
 //배열 관련 함수 1 -변수에 배열의 형태를 넣었을때 출력되는 형태, 타입 
 let ar = [80, 20, 10, 15];
 console.log(ar, typeof(ar));
